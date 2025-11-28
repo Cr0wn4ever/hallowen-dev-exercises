@@ -41,4 +41,32 @@ function binarySearch(target, array){
   return "No se ha encontrado en la lista"
 }
 
+function binarySearchRecursive(arr, target, start = 0, stop = arr.length - 1) {
+    // Edge case: range has been exhausted
+    if (start > stop) {
+        return false;
+    }
+
+    let midPoint = Math.floor(start + (stop - start) / 2);
+
+    // Case 1: Target found
+    if (arr[midPoint] === target) {
+        return "Este era el que estabas buscando!" + arr[midPoint]
+    }
+    
+    // Case 2: Target is in the lower half
+    if (target < arr[midPoint]) {
+        // Recurse on the lower half, excluding midPoint
+        return binarySearchRecursive(arr, target, start, midPoint - 1);
+    } 
+    
+    // Case 3: Target is in the upper half
+    else {
+        // Recurse on the upper half, excluding midPoint
+        return binarySearchRecursive(arr, target, midPoint + 1, stop);
+    }
+}
+
 console.log(binarySearch("1111", createArray()));
+
+console.log(binarySearchRecursive(createArray(), "1111"))
