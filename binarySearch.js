@@ -1,6 +1,18 @@
-const arrayTest = [1111, 2233, 1579, 4444, 4568, 8798, 1313, 1211, 5599, 7851];
+//ejercicio 4 "BUSQUEDA BINARIA CON MYERS"
 
-const sortedArray = arrayTest.toSorted()
+function createArray(){
+  let start = 1000
+  const Arr = []
+  for(let i = 1; i<=1000; i++){
+    Arr.push(String(start+i))
+  }
+  return Arr;
+}
+
+console.log(createArray().length)
+
+
+// const sortedArray = createArray.toSorted()
 
 // console.log(arrayTest)
 
@@ -18,7 +30,7 @@ function binarySearch(target, array){
     let medio = Math.floor(inicio + (final - inicio) / 2);
 
     if(array[medio] === target){
-      return "Este era el que estabas buscando!" + array[medio]
+      return "Este era el que estabas buscando! " + array[medio]
     } else if(target < array[medio]){
       final = medio -1
     } else{
@@ -29,7 +41,4 @@ function binarySearch(target, array){
   return "No se ha encontrado en la lista"
 }
 
-console.log(binarySearch(4568, sortedArray))
-console.log(binarySearch(8888, sortedArray))
-console.log(binarySearch(0, sortedArray))
-console.log(binarySearch(1313, sortedArray))
+console.log(binarySearch("1111", createArray()));
