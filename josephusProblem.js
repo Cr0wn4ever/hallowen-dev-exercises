@@ -13,7 +13,6 @@ function surviveRoulette(n, k) {
 }
 
 function surviveRouletteRecursive(n, k) {
-  const survivor = [...Array(n).keys()];
   if (n == 1) {
     return 0;
   }
